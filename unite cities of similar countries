@@ -1,0 +1,41 @@
+let data = [
+	{
+		country: 'country1',
+		city:    'city11',
+	},
+	{
+		country: 'country2',
+		city:    'city21',
+	},
+	{
+		country: 'country3',
+		city:    'city31',
+	},
+	{
+		country: 'country1',
+		city:    'city12',
+	},
+	{
+		country: 'country1',
+		city:    'city13',
+	},
+	{
+		country: 'country2',
+		city:    'city22',
+	},
+	{
+		country: 'country3',
+		city:    'city31',
+	},
+]
+
+let array = data.reduce((acc,{country,city})=> {
+    acc[country] ??= {country:country,city : []};
+    if(Array.isArray(city))
+        acc[country].city = acc[country].city.concat(city);
+    else
+    acc[country].city.push(city);
+return acc;
+
+},{});
+console.log(array);
